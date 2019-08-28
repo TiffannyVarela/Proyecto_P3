@@ -17,6 +17,7 @@ class Clase{
 		string id, nombre;
 		//string hora;
 		int uv, semestre, periodo, anio;
+		double not_total;
 		
 	public:
 		
