@@ -12,39 +12,39 @@ class Persona{
 	public:
 		Persona(){}
 
-		Persona(string id, nombre, rol){
+		Persona(string id, string nombre, string rol){
 			this->id=id;
 			this->nombre=nombre;
 			this->rol=rol;
 		}
 
-		void getId(){
+		string getId(){
 			return this->id;
 		}
 
-		string setId(string id){
+		void setId(string id){
 			this->id=id;
 		}
 
-		void getNombre(){
+		string getNombre(){
 			return this->nombre;
 		}
 
-		string setNombre(string nombre){
+		void setNombre(string nombre){
 			this->nombre=nombre;
 		}
 
-		void getRol(){
+		string getRol(){
 			return this->rol;
 		}
 
-		string setRol(string rol){
+		void setRol(string rol){
 			this->rol=rol;
 		}
 
 		void printPersona(){
 			cout<<"ID: "<<id<<endl;
-			cout<"Nombre: "<<nombre<<endl;
+			cout<<"Nombre: "<<nombre<<endl;
 			cout<<"Rol: "<<rol<<endl;
 		}
 

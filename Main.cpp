@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <conio.h>
+#include "admRegistro.cpp"
 #include "Alumno.cpp"
 #include "Clase.cpp"
 #include "Enumeracion.cpp"
@@ -13,11 +15,70 @@
 #include "Usuario.cpp"
 #include "VOF.cpp"
 
-int main();
+//int main();
 
 int main()
 {
-	/* code */
+	string user;
+	string pass;
+	//vector <Registro*> reg;
+	Registro* registro;
+	admRegistro admR("./registro.txt");
+	string userN, passN, nombreN, idN, rolN;
+	
+	
+	/*cout<<"Nuevo Usuario: ";
+	cin>>userN;
+	cout<<"Nuevo Password: ";
+	cin>>passN;
+	cout<<"Nuevo Id: ";
+	cin>>idN;
+	cout<<"Nuevo Nombre: ";
+	cin>>nombreN;
+	rolN="Registro";
+	registro = new Registro(userN, passN, idN, nombreN, rolN);
+	admR.addRegistro(registro);
+	admR.Escribir();
+	admR.Leer();
+	admR.printReg();*/
+	admR.Leer();
+	cout<<"Prueba: "<<admR.getRegistro().at(0)->getNombre()<<endl;
+	/*cout<<"Ingrese su usuario: ";
+	cin>>user;
+	cout<<"Ingrese Contrasenia: ";
+	pass=" ";
+	char car;
+	car = getch();
+
+	while(car!=13){
+		if (car!=8)
+		{
+			pass.push_back(car);
+			cout<<"*";
+		}
+		else{
+			if (pass.length()>0)
+			{
+				cout<<"\b \b";
+				pass=pass.substr(0, pass.length()-1);
+			}
+		}
+		car = getch();
+	}
+	cout<<pass<<endl;
+	
+	admR.Leer();
+	admR.printReg();
+	for(int i=0; i< admR.getRegistro().size(); i++){
+		if(user==admR.getRegistro().at(i)->getUser() && pass==admR.getRegistro().at(i)->getPass()){
+			cout<<"Bienvenido"<<endl;
+		}
+		else{
+			cout<<"Error"<<endl;
+		}
+	}*/
+	
+	
 	return 0;
 }
 

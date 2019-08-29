@@ -29,7 +29,6 @@ class Examen{
 			this->valor=valor;
 		}
 
-		void get
 
 
 		

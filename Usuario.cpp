@@ -17,21 +17,13 @@ class Usuario{
 			this->pass=pass;
 		}
 
-		void getUser(){
-			return this->user;
-		}
+		virtual string getUser()=0;
 
-		string setUser(string user){
-			this->user=user;
-		}
+		virtual void setUser(string user)=0;
 
-		void getPass(){
-			return this->pass;
-		}
+		virtual string getPass()=0;
 
-		string setPass(string pass){
-			this->pass=pass;
-		}
+		virtual void setPass(string pass)=0;
 
 		~Usuario(){}
 		

@@ -10,14 +10,54 @@ using namespace std;
 
 class Registro : public Usuario, public Persona{
 	protected:
-		Persona* p;
 		
 	public:
-		Registro():Usuario(), Persona(){}
+		Registro(string user, string pass, string id, string nombre, string rol):Usuario(user,pass), Persona(id,nombre,rol){}
+
+		string getId(){
+			return this->id;
+		}
+
+		void setId(string id){
+			this->id=id;
+		}
+
+		string getNombre(){
+			return this->nombre;
+		}
+
+		void setNombre(string nombre){
+			this->nombre=nombre;
+		}
+
+		string getRol(){
+			return this->rol;
+		}
+
+		void setRol(string rol){
+			this->rol=rol;
+		}
+
+		string getUser(){
+			return this->user;
+		}
+
+		void setUser(string user){
+			this->user=user;
+		}
+
+		string getPass(){
+			return this->pass;
+		}
+
+		void setPass(string pass){
+			this->pass=pass;
+		}
+
 
 		void printRegistro(){
 			cout<<"Registro"<<endl;
-			p->printPersona();
+			Persona::printPersona();
 		}
 
 		~Registro(){}
