@@ -113,12 +113,12 @@ class admClase{
 	    	leer.close();
 	    }
 
-	    /*void printClas(){
+	    void printClas(){
 	    	for (int i = 0; i < clas.size(); ++i)
 	    	{
 	    		clas.at(i)->printClase();
 	    	}
-	    }*/
+	    }
 
 
 };
