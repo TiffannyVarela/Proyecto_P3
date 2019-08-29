@@ -24,6 +24,22 @@ class Maestro : public Usuario, public Persona{
 			this->sueldo=sueldo;
 		}
 		
+		vector <Clase*> getAsignadas(){
+			return this->asignadas;
+		}
+		
+		void setAsignadas(vector <Clase*> asignadas){
+			this->asignadas = asignadas;
+		}
+		
+		void setAsigna(Clase* cur){
+			asignadas.push_back(cur);
+		}
+		
+		void remAsignada(int p){
+			asignadas.erase(asignadas.begin()+p);
+		}
+
 		string getProfesion(){
 			return this->profesion;
 		}

@@ -73,11 +73,10 @@ int main()
 	cout<<admR.getRegistro().at(0)->getPass()<<endl;
 	for(int i=0; i< admR.getRegistro().size(); i++){
 		if(admR.getRegistro().at(i)->getUser().compare(user)==0 && admR.getRegistro().at(i)->getPass()==pass){
-			cout<<"User bueno"<<endl;
-				cout<<"pass bueno"<<endl;
+
 		}
 		else{
-			cout<<"2"<<endl;
+
 		}
 	}
 	

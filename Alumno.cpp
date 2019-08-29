@@ -20,6 +20,7 @@ class Alumno : public Usuario, public Persona{
 	public:
 		Alumno(string carrera, string user, string pass, string id, string nombre, string rol):Usuario(user,pass), Persona(id,nombre,rol){
 			this->carrera=carrera;
+			rol = "Alumno";
 		}
 		
 		string getCarrera(){
