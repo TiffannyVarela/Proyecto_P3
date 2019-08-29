@@ -28,7 +28,7 @@ class admAlumno
 			alu.push_back(r);
 		}
 
-		vector<Alumno*> getAlumno(){
+		vector<Alumno*> getAlumnos(){
 			return this->alu;
 		}
 
@@ -113,6 +113,13 @@ class admAlumno
 	    	for (int i = 0; i < alu.size(); ++i)
 	    	{
 	    		alu.at(i)->printAlumno();
+	    	}
+	    }
+	    
+	    void printAluReg(){
+	    	for (int i = 0; i < alu.size(); ++i)
+	    	{
+	    		alu.at(i)->printAlumReg();
 	    	}
 	    }
 

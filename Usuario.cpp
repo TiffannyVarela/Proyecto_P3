@@ -27,6 +27,11 @@ class Usuario{
 
 		~Usuario(){}
 		
+		void printUsuario(){
+			cout<<"Usuario: "<<user<<endl;
+			cout<<"Password: "<<pass<<endl;
+		}
+		
 };
 
 #endif

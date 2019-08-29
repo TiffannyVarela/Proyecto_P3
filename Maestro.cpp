@@ -103,6 +103,11 @@ class Maestro : public Usuario, public Persona{
 		void printMaestro(){
 			Persona::printPersona();
 		}
+		
+		void printMaestroReg(){
+			Usuario::printUsuario();
+			Persona::printPersona();
+		}
 };
 
 #endif

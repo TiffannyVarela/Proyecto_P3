@@ -25,7 +25,7 @@ class Clase{
 		double notaT;
 	public:
 		Clase(){
-			maestro = new Maestro();
+			//maestro = new Maestro();
 		}
 
 		Clase(string id, string nombre, string hora,  string uv, string semestre, string periodo, string anio, /*Maestro* maestro,*/ double notaT){

@@ -107,6 +107,11 @@ class Alumno : public Usuario, public Persona{
 		void printAlumno(){
 			Persona::printPersona();
 		}
+		
+		void printAlumReg(){
+			Usuario::printUsuario();
+			Persona::printPersona();
+		}
 
 };
 

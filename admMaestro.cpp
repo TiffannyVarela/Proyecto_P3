@@ -63,7 +63,7 @@ class admMaestro
 
 	    void Escribir(){
 	    	ofstream escribir;
-	    	escribir.open(ruta.c_str(), ios::app);
+	    	escribir.open(ruta.c_str());
 	    	for (int i = 0; i < mae.size(); ++i)
 	    	{
 	    		escribir<<mae.at(i)->getProfesion()<<"/"
@@ -107,13 +107,21 @@ class admMaestro
 	    	leer.close();
 	    }
 
-	    void printAlu(){
+	    void printMae(){
 	    	for (int i = 0; i < mae.size(); ++i)
 	    	{
 	    		cout<<"Pos: "<<i<<endl;
 	    		mae.at(i)->printMaestro();
 	    	}
 	    }
+	    
+	    void printMaeReg(){
+	    	for (int i = 0; i < mae.size(); ++i)
+	    	{
+	    		cout<<"Pos: "<<i<<endl;
+	    		mae.at(i)->printMaestroReg();
+	    	}
+		}
 
 };
 #endif

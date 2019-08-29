@@ -20,12 +20,14 @@
 
 int menu();
 void ing_maestro();
-int menuM();
 void ing_alumno();
 void ing_clase();
 void mod_maestro();
+int menuM();
 void mod_alumno();
+int menuA();
 void mod_clase();
+int menuC();
 void elim_maestro();
 void elim_alumno();
 void elim_clase();
@@ -52,9 +54,10 @@ int main()
 	int pos =0;
 	
 	Alumno* a;
+	string carreraN;
 	
 	Clase* c;
-	
+	string hora, uv,semestre, periodo,anio;
 	
 	/*cout<<"Nuevo Usuario: ";
 	cin>>userN;
@@ -71,7 +74,7 @@ int main()
 	admR.Leer();
 	admR.printReg();*/
 	admR.Leer();
-	cout<<"Prueba: "<<admR.getRegistro().at(0)->getNombre()<<endl;
+//	cout<<"Prueba: "<<admR.getRegistro().at(0)->getNombre()<<endl;
 	cout<<"Ingrese su usuario: ";
 	cin>>user;
 	cout<<"Ingrese Contrasenia: ";
@@ -105,6 +108,7 @@ int main()
 			do{
 				switch(opc=menu()){
 					case 1:
+						system("cls");
 						cout<<"Nuevo Usuario: ";
 						cin>>userN;
 						cout<<"Nuevo Password: ";
@@ -112,9 +116,10 @@ int main()
 						cout<<"Nuevo Id: ";
 						cin>>idN;
 						cout<<"Nuevo Nombre: ";
-						cin>>nombreN;
+						getline(cin,nombreN);
+						getline(cin,nombreN);
 						cout<<"Nueva Profesion: ";
-						cin>>profN;
+						getline(cin,profN);
 						cout<<"Nuevo Sueldo: ";
 						cin>>sueldoN;
 						rolN="Maestro";
@@ -128,13 +133,15 @@ int main()
 						nombreN="";
 						idN="";
 						profN="";
-						sueldoN="";
+						sueldoN=0;
 						rolN="";
+						system("pause");
 						break;
 						
 					case 2:
+						system("cls");
 						admM.Leer();
-						admM.printAlu();
+						admM.printMaeReg();
 						cout<<"Posicion a modificar: ";
 						cin>>pos;
 						if(pos>=0 && pos<admM.getN()){
@@ -143,9 +150,10 @@ int main()
 									cout<<"Nuevo Usuario: ";
 									cin>>userN;
 									admM.getMaestros().at(pos)->setUser(userN);
-									admM.printAlu();
+									admM.printMaeReg();
 									admM.Escribir();
 									userN="";
+									opc=0;
 									break;
 									
 								case 2:
@@ -166,30 +174,133 @@ int main()
 								case 7:
 									break;
 							}
+							system("pause");
 						}
 						break;
 						
 					case 3:
+						system("cls");
 						admM.Leer();
-						admM.printAlu();
+						admM.printMaeReg();
 						cout<<"Posicion a eliminar: ";
 						cin>>pos;
 						if(pos>=0 && pos<admM.getN()){
 							admM.remMaestro(pos);
 							admM.Escribir();
 						}
+						system("pause");
 						break;
 						
 					case 4:
+						system("cls");
+						cout<<"Nuevo Usuario: ";
+						cin>>userN;
+						cout<<"Nuevo Password: ";
+						cin>>passN;
+						cout<<"Nuevo Id: ";
+						cin>>idN;
+						cout<<"Nuevo Nombre: ";
+						getline(cin,nombreN);
+						getline(cin,nombreN);
+						cout<<"Nueva Carrera: ";
+						getline(cin,carreraN);
+						rolN="Alumno";
+						a = new Alumno(carreraN, userN, passN, idN,nombreN,rolN);
+						admA.addAlumno(a);
+						admA.Escribir();
+						//admM.Leer();
+						//admM.printAlu();
+						userN="";
+						passN="";
+						nombreN="";
+						idN="";
+						carreraN="";
+						rolN="";
+						system("pause");
 						break;
 						
 					case 5:
+						system("cls");
+						admA.Leer();
+						admA.printAluReg();
+						cout<<"Posicion a modificar: ";
+						cin>>pos;
+						if(pos>=0 && pos<admA.getN()){
+							switch(opc2=menuA()){
+								case 1:
+									cout<<"Nuevo Usuario: ";
+									cin>>userN;
+									admA.getAlumnos().at(pos)->setUser(userN);
+									admA.printAluReg();
+									admA.Escribir();
+									userN="";
+									opc=0;
+									break;
+									
+								case 2:
+									break;
+									
+								case 3:
+									break;
+									
+								case 4:
+									break;
+									
+								case 5:
+									break;
+									
+								case 6:
+									break;
+									
+							}
+							system("pause");
+						}
 						break;
 						
 					case 6:
+						system("cls");
+						admA.Leer();
+						admA.printAluReg();
+						cout<<"Posicion a eliminar: ";
+						cin>>pos;
+						if(pos>=0 && pos<admA.getN()){
+							admA.remAlumno(pos);
+							admA.Escribir();
+						}
+						system("pause");
 						break;
 						
 					case 7:
+						system("cls");
+						cout<<"Nuevo Id: ";
+						cin>>idN;
+						cout<<"Nuevo Nombre: ";
+						getline(cin,nombreN);
+						getline(cin,nombreN);
+						cout<<"Nueva Hora: ";
+						cin>>hora;
+						cout<<"Nueva UV: ";
+						cin>>uv;
+						cout<<"Nueva Semestre: ";
+						cin>>semestre;
+						cout<<"Nueva Periodo: ";
+						cin>>periodo;
+						cout<<"Nueva Anio: ";
+						cin>>anio;
+						
+						//rolN="Alumno";
+						c = new Clase(idN,nombreN,hora,uv,semestre,periodo,anio,0);
+						admC.addClase(c);
+						admC.Escribir();
+						//admM.Leer();
+						//admM.printAlu();
+						userN="";
+						passN="";
+						nombreN="";
+						idN="";
+						carreraN="";
+						rolN="";
+						system("pause");
 						break;
 						
 					case 8:
@@ -218,6 +329,8 @@ int main()
 int menu(){
 	int opc=0;
 	while (true){
+		system("cls");
+		cout<<endl;
 		cout<<"MENU"<<endl
 			<<"1.-Ingresar Maestro"<<endl
 			<<"2.-Modificar Maestro"<<endl
@@ -247,6 +360,7 @@ int menu(){
 int menuM(){
 	int opc=0;
 	while (true){
+		cout<<endl;
 		cout<<"Que desea modificar?"<<endl
 			<<"1.-Usuario"<<endl
 			<<"2.-Contrasenia"<<endl
@@ -255,6 +369,30 @@ int menuM(){
 			<<"5.-Profesion"<<endl
 			<<"6.-Sueldo"<<endl
 			<<"7.-Salir"<<endl;
+			
+		cout<<"Ingrese una opcion: ";
+		cin>>opc;
+		if(opc>=1 && opc<=7){
+			return opc;
+		}
+		else{
+			cout<<"Opcion elegida no es valida"<<endl;
+		}
+	}
+	return 0;
+}
+
+int menuA(){
+	int opc=0;
+	while (true){
+		cout<<endl;
+		cout<<"Que desea modificar?"<<endl
+			<<"1.-Usuario"<<endl
+			<<"2.-Contrasenia"<<endl
+			<<"3.-Id"<<endl
+			<<"4.-Nombre"<<endl
+			<<"5.-Carrera"<<endl
+			<<"6.-Salir"<<endl;
 			
 		cout<<"Ingrese una opcion: ";
 		cin>>opc;
