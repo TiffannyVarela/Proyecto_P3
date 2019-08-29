@@ -18,6 +18,7 @@ class Examen{
 		//int duracion;
 		vector <Pregunta*> preguntas;
 		double valor;
+		double nota;
 		
 	public:
 		Examen(){}
@@ -27,8 +28,10 @@ class Examen{
 			this->fecha=fecha;
 			this->hora=hora;
 			this->valor=valor;
+			nota = 0;
 		}
 
+	
 
 
 		

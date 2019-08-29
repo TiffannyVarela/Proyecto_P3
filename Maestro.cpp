@@ -18,6 +18,8 @@ class Maestro : public Usuario, public Persona{
 		vector <Clase*> asignadas;
 		
 	public:
+		Maestro(){
+		}
 		
 		Maestro(string profesion, double sueldo, string user, string pass, string id, string nombre, string rol):Usuario(user,pass), Persona(id,nombre,rol){
 			this->profesion=profesion;

@@ -2,45 +2,44 @@
 #include<string> 
 #include <fstream>
 #include <stdlib.h>
-#include "Maestro.cpp"
+#include "Clase.cpp"
 #include<string.h>
 #include <vector>
 #include <bits/stdc++.h>
 using namespace std;
 
-#ifndef ADMMAESTRO_CPP
-#define ADMMAESTRO_CPP
+#ifndef ADMCLASE_CPP
+#define ADMCLASE_CPP
 
-class admMaestro
-{
+class admClase{
 	private:
 		string ruta;
-		vector <Maestro*> mae;
+		vector <Clase*> clas;
 	public:
-		admMaestro(string ruta){
+		admClase(string ruta){
 			this->ruta=ruta;
 		}
 		string getRuta(){
 			return this->ruta;
 		}
 
-		void addMaestro(Maestro* r){
-			mae.push_back(r);
+		void addClase(Clase* r){
+			clas.push_back(r);
 		}
 
-		vector<Maestro*> getMaestros(){
-			return this->mae;
+		vector<Clase*> getClase(){
+			return this->clas;
 		}
 
-		void remMaestro(int p){
-			mae.erase(mae.begin()+p);
+		void remClase(int p){
+			clas.erase(clas.begin()+p);
 		}
 
 		int getN(){
-			mae.size();
+			clas.size();
 		}
 
-		~admMaestro(){}
+		~admClase(){}
 	
 		string token(string cadena, string divisor, int pos){
 	       if(cadena.size()>0){
@@ -64,17 +63,22 @@ class admMaestro
 	    void Escribir(){
 	    	ofstream escribir;
 	    	escribir.open(ruta.c_str(), ios::app);
-	    	for (int i = 0; i < mae.size(); ++i)
+	    	for (int i = 0; i < clas.size(); ++i)
 	    	{
-	    		escribir<<mae.at(i)->getProfesion()<<"/"
-			    		<<mae.at(i)->getSueldo()<<"/"
-			    		<<mae.at(i)->getUser()<<"/"
-			    		<<mae.at(i)->getPass()<<"/"
-			    		<<mae.at(i)->getId()<<"/"
-			    		<<mae.at(i)->getNombre()<<"/"
-			    		<<mae.at(i)->getRol()<<"/";
-			    		for(int j=0; j<mae.at(i)->getAsignadas().size(); j++){
-			    			escribir<<mae.at(i)->getAsignadas()[j]<<",";
+	    		escribir<<clas.at(i)->getId()<<"/"
+			    		<<clas.at(i)->getNombre()<<"/"
+			    		<<clas.at(i)->getHora()<<"/"
+			    		<<clas.at(i)->getUv()<<"/"
+			    		<<clas.at(i)->getPeriodo()<<"/"
+			    		<<clas.at(i)->getAnio()<<"/"
+			    		<<clas.at(i)->nota_total()<<"/"
+			    		<<clas.at(i)->getMaestro()->getNombre()<<"/";//cambiar despues
+			    		for(int j=0; j<clas.at(i)->getAlumnos().size(); j++){
+			    			escribir<<clas.at(i)->getAlumnos()[j]<<",";
+						}
+						escribir<<"/";
+						for(int j=0; j<clas.at(i)->getExamenes().size(); j++){
+			    			escribir<<clas.at(i)->getExamenes().at(j)<<",";
 						}
 						escribir<<endl;
 	    	}
@@ -84,7 +88,7 @@ class admMaestro
 	    void Leer(){
 	    	fstream leer;
 	    	string linea;
-	    	mae.clear();
+	    	clas.clear();
 	    	leer.open(ruta.c_str());
 	    	if (leer.is_open())
 	    	{
@@ -92,13 +96,15 @@ class admMaestro
 	    			getline(leer,linea);
 	    			if (linea.size()>0)
 	    			{
-	    				addMaestro(new Maestro(token(linea,"/",1),
-	    										atof(token(linea,"/",2).c_str()),
+	    				addClase(new Clase(token(linea,"/",1),
+	    										token(linea,"/",2),
 	    										token(linea,"/",3),
 	    										token(linea,"/",4),
 	    										token(linea,"/",5),
 	    										token(linea,"/",6),
-	    										token(linea,"/",7)
+	    										token(linea,"/",7),
+	    										//token(linea,"/",8),
+	    										atof(token(linea,"/",9).c_str())
 	    										)
 	    				);
 	    			}
@@ -107,13 +113,13 @@ class admMaestro
 	    	leer.close();
 	    }
 
-	    void printAlu(){
-	    	for (int i = 0; i < mae.size(); ++i)
+	    /*void printClas(){
+	    	for (int i = 0; i < clas.size(); ++i)
 	    	{
-	    		cout<<"Pos: "<<i<<endl;
-	    		mae.at(i)->printMaestro();
+	    		clas.at(i)->printClase();
 	    	}
-	    }
+	    }*/
+
 
 };
 #endif
