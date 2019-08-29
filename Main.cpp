@@ -43,10 +43,10 @@ int main()
 	admR.printReg();*/
 	admR.Leer();
 	cout<<"Prueba: "<<admR.getRegistro().at(0)->getNombre()<<endl;
-	/*cout<<"Ingrese su usuario: ";
+	cout<<"Ingrese su usuario: ";
 	cin>>user;
 	cout<<"Ingrese Contrasenia: ";
-	pass=" ";
+	pass="";
 	char car;
 	car = getch();
 
@@ -65,18 +65,21 @@ int main()
 		}
 		car = getch();
 	}
-	cout<<pass<<endl;
+	//cout<<pass<<endl;
 	
 	admR.Leer();
-	admR.printReg();
+	//admR.printReg();
+	cout<<admR.getRegistro().at(0)->getUser()<<endl;
+	cout<<admR.getRegistro().at(0)->getPass()<<endl;
 	for(int i=0; i< admR.getRegistro().size(); i++){
-		if(user==admR.getRegistro().at(i)->getUser() && pass==admR.getRegistro().at(i)->getPass()){
-			cout<<"Bienvenido"<<endl;
+		if(admR.getRegistro().at(i)->getUser().compare(user)==0 && admR.getRegistro().at(i)->getPass()==pass){
+			cout<<"User bueno"<<endl;
+				cout<<"pass bueno"<<endl;
 		}
 		else{
-			cout<<"Error"<<endl;
+			cout<<"2"<<endl;
 		}
-	}*/
+	}
 	
 	
 	return 0;
