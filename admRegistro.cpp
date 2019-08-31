@@ -63,7 +63,7 @@ class admRegistro
 
 	    void Escribir(){
 	    	ofstream escribir;
-	    	escribir.open(ruta.c_str(), ios::app);
+	    	escribir.open(ruta.c_str());
 	    	for (int i = 0; i < reg.size(); ++i)
 	    	{
 	    		escribir<<reg.at(i)->getUser()<<"/"
@@ -102,7 +102,10 @@ class admRegistro
 	    void printReg(){
 	    	for (int i = 0; i < reg.size(); ++i)
 	    	{
+	    		cout<<endl;
+	    		cout<<"Pos: "<<i<<endl;
 	    		reg.at(i)->printRegistro();
+	    		cout<<endl;
 	    	}
 	    }
 

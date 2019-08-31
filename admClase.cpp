@@ -23,8 +23,8 @@ class admClase{
 			return this->ruta;
 		}
 
-		void addClase(Clase* r){
-			clas.push_back(r);
+		void addClase(Clase* c){
+			clas.push_back(c);
 		}
 
 		vector<Clase*> getClase(){
@@ -62,7 +62,7 @@ class admClase{
 
 	    void Escribir(){
 	    	ofstream escribir;
-	    	escribir.open(ruta.c_str(), ios::app);
+	    	escribir.open(ruta.c_str());
 	    	for (int i = 0; i < clas.size(); ++i)
 	    	{
 	    		escribir<<clas.at(i)->getId()<<"/"
@@ -116,7 +116,10 @@ class admClase{
 	    void printClas(){
 	    	for (int i = 0; i < clas.size(); ++i)
 	    	{
+	    		cout<<endl;
+	    		cout<<"Pos: "<<i<<endl;
 	    		clas.at(i)->printClase();
+	    		cout<<endl;
 	    	}
 	    }
 

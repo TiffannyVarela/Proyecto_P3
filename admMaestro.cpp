@@ -118,8 +118,10 @@ class admMaestro
 	    void printMaeReg(){
 	    	for (int i = 0; i < mae.size(); ++i)
 	    	{
+	    		cout<<endl;
 	    		cout<<"Pos: "<<i<<endl;
 	    		mae.at(i)->printMaestroReg();
+	    		cout<<endl;
 	    	}
 		}
 

@@ -63,7 +63,7 @@ class admAlumno
 
 	    void Escribir(){
 	    	ofstream escribir;
-	    	escribir.open(ruta.c_str(), ios::app);
+	    	escribir.open(ruta.c_str());
 	    	for (int i = 0; i < alu.size(); ++i)
 	    	{
 	    		escribir<<alu.at(i)->getUser()<<"/"
@@ -119,7 +119,10 @@ class admAlumno
 	    void printAluReg(){
 	    	for (int i = 0; i < alu.size(); ++i)
 	    	{
+	    		cout<<endl;
+	    		cout<<"Pos: "<<i<<endl;
 	    		alu.at(i)->printAlumReg();
+	    		cout<<endl;
 	    	}
 	    }
 

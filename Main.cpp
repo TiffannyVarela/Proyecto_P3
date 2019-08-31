@@ -348,20 +348,20 @@ int main()
 									cin>>periodo;
 									cout<<"Nueva Anio: ";
 									cin>>anio;
-									
-									//rolN="Alumno";
 									c = new Clase(idN,nombreN,hora,uv,semestre,periodo,anio,0);
 									admC.addClase(c);
 									admC.Escribir();
 									//admM.Leer();
 									//admM.printAlu();
-									userN="";
-									passN="";
 									nombreN="";
 									idN="";
-									carreraN="";
-									rolN="";
+									hora="";
+									uv="";
+									semestre="";
+									periodo="";
+									anio="";
 									system("pause");
+									opc2=0;
 									break;
 									
 								case 2:
@@ -449,25 +449,52 @@ int main()
 										
 								case 3:
 									system("cls");
-									admM.Leer();
-									admM.printMaeReg();
+									admC.Leer();
+									admC.printClas();
 									cout<<"Posicion a eliminar: ";
 									cin>>pos;
-									if(pos>=0 && pos<admM.getN()){
-										admM.remMaestro(pos);
-										admM.Escribir();
+									if(pos>=0 && pos<admC.getN()){
+										admC.remClase(pos);
+										admC.Escribir();
 									}
 									system("pause");
 									break;
 									
-								case 4:
-									break;
 							}
 						
 						}while(opc2!=4);
 						break;
+						
+						
+								case 4:
+									system("cls");
+									cout<<"Nuevo Usuario: ";
+									cin>>userN;
+									cout<<"Nuevo Password: ";
+									cin>>passN;
+									cout<<"Nuevo Id: ";
+									cin>>idN;
+									cout<<"Nuevo Nombre: ";
+									getline(cin,nombreN);
+									getline(cin,nombreN);
+									rolN="Registro";
+									registro = new Registro(userN, passN, idN, nombreN, rolN);
+									admR.addRegistro(registro);
+									admR.Escribir();
+									//admM.Leer();
+									//admM.printAlu();
+									userN="";
+									passN="";
+									nombreN="";
+									idN="";
+									rolN="";
+									system("pause");
+									
+									break;
 				}
-			}while(opc!=4);
+				
+				
+			}while(opc!=5);
 		}
 		else{
 
@@ -488,11 +515,12 @@ int menuAdm(){
 			<<"1.-Alumnos"<<endl
 			<<"2.-Maestros"<<endl
 			<<"3.-Clase"<<endl
-			<<"4.-Salir"<<endl;
+			<<"4.-Crear Admin"<<endl
+			<<"5.-Salir"<<endl;
 			
 		cout<<"Ingrese una opcion: ";
 		cin>>opc;
-		if(opc>=1 && opc<=4){
+		if(opc>=1 && opc<=5){
 			return opc;
 		}
 		else{
